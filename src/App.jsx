@@ -14,7 +14,10 @@ function App() {
           path="/"
           element={<Navigate to={token ? '/home' : '/login'} replace />}
         />
-        <Route path="/login" element={<UserLoginPage />} />
+        <Route
+          path="/login"
+          element={token ? <Navigate to="/home" replace /> : <UserLoginPage />}
+        />
         <Route
           path="/home"
           element={
@@ -29,3 +32,4 @@ function App() {
 }
 
 export default App;
+ 
