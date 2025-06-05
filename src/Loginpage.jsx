@@ -4,7 +4,9 @@ import FingerprintJS from '@fingerprintjs/fingerprintjs';
 import { useNavigate } from 'react-router-dom';
 
 
-  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL
+  // eslint-disable-next-line no-undef
+  const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+
 
 function UserLoginPage() {
   const [code, setCode] = useState('');
