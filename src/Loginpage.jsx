@@ -43,7 +43,7 @@ function UserLoginPage() {
     setLoading(true);
     setMessage('');
     try {
-      const res = await axios.post(`${API_BASE_URL}/login`, { code, fingerprint });
+      const res = await axios.post('https://piratesserver.onrender.com/api/login', { code, fingerprint });
       localStorage.setItem('token', res.data.token);
       setToken(res.data.token);
       setIsLoggedIn(true); // triggers redirect to /home
@@ -56,7 +56,7 @@ function UserLoginPage() {
 
   const verifyToken = async (fp) => {
     try {
-      await axios.post(`${API_BASE_URL}/verify`, { token, fingerprint: fp });
+      await axios.post('https://piratesserver.onrender.com/api/verify', { token, fingerprint: fp });
       setIsLoggedIn(true);
     } catch {
       localStorage.removeItem('token');
